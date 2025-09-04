@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BFD Repair Ticketing System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>BFD Repair Ticketing System</h1>
+    </header>
+
+    <main class="grid">
+      <section class="form-card">
+        <h2>Create Ticket</h2>
+        <form id="ticketForm" enctype="multipart/form-data">
+          <label>Title
+            <input type="text" name="title" id="title" required>
+          </label>
+
+          <label>Department
+            <input type="text" name="department" id="department" required>
+          </label>
+
+          <label>Description
+            <textarea name="description" id="description"></textarea>
+          </label>
+
+          <label>Priority
+            <select name="priority" id="priority">
+              <option>Medium</option>
+              <option>Low</option>
+              <option>High</option>
+            </select>
+          </label>
+
+          <label>Expected End At (optional)
+            <input type="datetime-local" name="end_at" id="end_at">
+          </label>
+
+          <label>GitHub URL (optional)
+            <input type="url" name="github_url" id="github_url" placeholder="https://github.com/username/repo">
+          </label>
+
+          <label>Attachment (optional)
+            <input type="file" name="attachment" id="attachment">
+          </label>
+
+          <div class="actions">
+            <button type="submit">Create</button>
+            <button type="button" id="clearBtn">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="list-card">
+        <div class="list-header">
+          <h2>Tickets</h2>
+          <div>
+            <input id="search" placeholder="Search...">
+            <select id="filterStatus">
+              <option value="">All</option>
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Closed</option>
+            </select>
+            <button id="exportCsv">Export CSV</button>
+          </div>
+        </div>
+
+        <div id="ticketsList" class="tickets"></div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Made with ❤️</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
